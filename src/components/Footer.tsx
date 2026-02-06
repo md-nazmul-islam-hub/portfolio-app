@@ -8,11 +8,11 @@ export default function Footer() {
     <footer className="py-6 border-t border-gray-200 dark:border-dark-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-dark-600 dark:text-dark-400 text-sm">
+          {/* <div className="flex items-center gap-2 text-dark-600 dark:text-dark-400 text-sm">
             <span>Built with</span>
             <Heart className="w-4 h-4 text-orange-500 fill-orange-500" />
             <span>by {profile.name}</span>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-4">
             <a
