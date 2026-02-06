@@ -117,14 +117,14 @@
   .btn-primary::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500
-           opacity-0 transition-opacity duration-300;
+           opacity-0 transition-opacity duration-300 z-0;
   }
 
   .btn-primary:hover::before {
     @apply opacity-100;
   }
 
-  .btn-primary span {
+  .btn-primary > * {
     @apply relative z-10;
   }
 

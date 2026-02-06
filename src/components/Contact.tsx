@@ -124,8 +124,10 @@ export default function Contact() {
                 </div>
 
                 <button type="submit" className="btn-primary w-full justify-center">
-                  <Send className="w-4 h-4" />
-                  Send Message
+                  <span className="relative z-10 inline-flex items-center gap-2">
+                    <Send className="w-4 h-4" />
+                    Send Message
+                  </span>
                 </button>
               </form>
             </motion.div>
