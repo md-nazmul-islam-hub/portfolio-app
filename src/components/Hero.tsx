@@ -121,7 +121,7 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-3 border-2 border-orange-500 text-orange-400 font-semibold rounded-xl
+                className="group px-2 sm:px-4 md:px-8 py-3 border-2 border-orange-500 text-orange-400 font-semibold rounded-xl
                          transform transition-all duration-300
                          hover:bg-orange-500 hover:text-dark-900 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20
                          active:scale-95"
