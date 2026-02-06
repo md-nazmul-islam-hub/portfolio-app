@@ -9,7 +9,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <main className="pt-24 pb-20">
+    <main className="pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -18,20 +18,23 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
         >
           {/* Page Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-dark-100 mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-dark-800 dark:text-dark-100 mb-4">
               All <span className="gradient-text">Projects</span>
             </h1>
-            <p className="text-dark-200 text-lg">
+            <p className="text-dark-600 dark:text-dark-300">
               A collection of projects I've worked on throughout my career, from community
               management platforms to hospital management systems and more.
             </p>
           </div>
 
           {/* Featured Projects */}
-          <section className="mb-20">
-            <h2 className="text-2xl font-bold text-dark-100 mb-8">Featured Projects</h2>
-            <div className="space-y-24">
+          <section className="mb-16">
+            <h2 className="text-xl font-bold text-dark-800 dark:text-dark-100 mb-6 flex items-center gap-3">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-primary-500 to-violet-500 rounded-full"></span>
+              Featured Projects
+            </h2>
+            <div className="space-y-16">
               {projects.slice(0, 2).map((project, index) => (
                 <ProjectCard
                   key={project.id}
@@ -45,9 +48,12 @@ export default function Projects() {
           </section>
 
           {/* Other Projects */}
-          <section>
-            <h2 className="text-2xl font-bold text-dark-100 mb-8">Other Noteworthy Projects</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section className="mb-16">
+            <h2 className="text-xl font-bold text-dark-800 dark:text-dark-100 mb-6 flex items-center gap-3">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-full"></span>
+              Other Noteworthy Projects
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.slice(2).map((project, index) => (
                 <ProjectCard
                   key={project.id}
@@ -59,10 +65,13 @@ export default function Projects() {
             </div>
           </section>
 
-          {/* Project Details Modal/Expanded View could go here */}
-          <section className="mt-20">
-            <h2 className="text-2xl font-bold text-dark-100 mb-8">Project Highlights</h2>
-            <div className="space-y-8">
+          {/* Project Highlights */}
+          <section>
+            <h2 className="text-xl font-bold text-dark-800 dark:text-dark-100 mb-6 flex items-center gap-3">
+              <span className="w-8 h-0.5 bg-gradient-to-r from-accent-500 to-warm-500 rounded-full"></span>
+              Project Highlights
+            </h2>
+            <div className="space-y-6">
               {projects.map((project) => (
                 <motion.div
                   key={project.id}
@@ -71,28 +80,28 @@ export default function Projects() {
                   transition={{ duration: 0.5 }}
                   className="card"
                 >
-                  <div className="flex flex-col md:flex-row gap-6">
+                  <div className="flex flex-col md:flex-row gap-5">
                     <div className="md:w-1/3">
-                      <div className="aspect-video bg-dark-300 rounded-lg flex items-center justify-center">
-                        <span className="text-4xl font-bold text-dark-200/50">{project.title[0]}</span>
+                      <div className="aspect-video bg-gradient-to-br from-primary-100 to-violet-100 dark:from-primary-950/30 dark:to-violet-950/30 rounded-xl flex items-center justify-center">
+                        <span className="text-4xl font-bold bg-gradient-to-br from-primary-500 to-violet-500 bg-clip-text text-transparent">{project.title[0]}</span>
                       </div>
                     </div>
                     <div className="md:w-2/3">
-                      <h3 className="text-xl font-bold text-dark-100 mb-1">{project.title}</h3>
-                      <p className="text-primary-400 text-sm mb-3">{project.subtitle}</p>
-                      <p className="text-dark-200 mb-4">{project.description}</p>
+                      <h3 className="text-lg font-bold text-dark-800 dark:text-dark-100 mb-1">{project.title}</h3>
+                      <p className="text-violet-500 dark:text-violet-400 text-sm mb-2">{project.subtitle}</p>
+                      <p className="text-dark-600 dark:text-dark-300 text-sm mb-3">{project.description}</p>
 
-                      <h4 className="text-sm font-semibold text-dark-100 mb-2">Key Features:</h4>
-                      <ul className="grid sm:grid-cols-2 gap-2 mb-4">
+                      <h4 className="text-sm font-semibold text-dark-700 dark:text-dark-200 mb-2">Key Features:</h4>
+                      <ul className="grid sm:grid-cols-2 gap-1.5 mb-3">
                         {project.features.map((feature, i) => (
-                          <li key={i} className="text-dark-200 text-sm flex items-start gap-2">
-                            <span className="text-primary-400 mt-1">▹</span>
+                          <li key={i} className="text-dark-600 dark:text-dark-300 text-sm flex items-start gap-2">
+                            <span className="text-accent-500 dark:text-accent-400">▹</span>
                             <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {project.technologies.map((tech) => (
                           <span key={tech} className="skill-tag text-xs">
                             {tech}

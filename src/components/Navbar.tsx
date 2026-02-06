@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTheme } from '../context/ThemeContext'
 
 const navLinks = [
   { name: 'Home', href: '/#home' },
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,21 +44,23 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark-500/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled
+          ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-lg shadow-lg shadow-primary-500/5'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 via-violet-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/30">
               <span className="text-white font-bold text-lg">MN</span>
             </div>
-            <span className="hidden sm:block text-dark-100 font-semibold">Nazmul Islam</span>
+            <span className="hidden sm:block text-dark-800 dark:text-dark-100 font-semibold">Nazmul Islam</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -67,11 +71,21 @@ export default function Navbar() {
                     handleNavClick(link.href)
                   }
                 }}
-                className="text-dark-200 hover:text-primary-400 transition-colors text-sm font-medium"
+                className="text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors text-sm font-medium"
               >
                 {link.name}
               </a>
             ))}
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
             <a
               href="/resume.pdf"
               target="_blank"
@@ -83,12 +97,21 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-dark-200 hover:text-primary-400"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              className="p-2 text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -99,7 +122,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-400/95 backdrop-blur-md border-t border-dark-300"
+            className="md:hidden bg-white/95 dark:bg-dark-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-dark-700"
           >
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) => (
@@ -114,7 +137,7 @@ export default function Navbar() {
                       setIsOpen(false)
                     }
                   }}
-                  className="block py-2 text-dark-200 hover:text-primary-400 transition-colors"
+                  className="block py-2 text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -123,7 +146,7 @@ export default function Navbar() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block py-2 text-primary-400"
+                className="block py-2 text-primary-500 dark:text-primary-400"
               >
                 Resume
               </a>

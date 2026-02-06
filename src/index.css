@@ -9,11 +9,24 @@
     scroll-behavior: smooth;
   }
 
+  /* Light mode - warm gradient background */
   body {
-    @apply bg-dark-500 text-dark-100 font-sans antialiased;
+    @apply font-sans antialiased transition-colors duration-300;
+    background: linear-gradient(135deg, #fafafa 0%, #f0f4ff 50%, #fdf4ff 100%);
+    @apply text-dark-800;
+  }
+
+  /* Dark mode - rich dark background */
+  .dark body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    @apply text-dark-100;
   }
 
   ::selection {
+    @apply bg-primary-500/30 text-primary-900;
+  }
+
+  .dark ::selection {
     @apply bg-primary-500/30 text-primary-100;
   }
 
@@ -22,11 +35,19 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-600;
+    @apply bg-gray-100;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-dark-950;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-dark-300 rounded-full;
+    @apply bg-primary-300 rounded-full;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -36,30 +57,268 @@
 
 @layer components {
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-dark-100 mb-4;
+    @apply text-2xl md:text-3xl font-bold text-dark-800 mb-4;
   }
 
+  .dark .section-heading {
+    @apply text-dark-50;
+  }
+
+  /* Multi-color gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 bg-clip-text text-transparent;
   }
 
+  .gradient-text-alt {
+    @apply bg-gradient-to-r from-secondary-500 via-primary-500 to-violet-500 bg-clip-text text-transparent;
+  }
+
+  /* Modern card with glassmorphism */
   .card {
-    @apply bg-dark-400/50 backdrop-blur-sm border border-dark-300/50 rounded-xl p-6
-           hover:border-primary-500/50 transition-all duration-300;
+    @apply bg-white/70 backdrop-blur-md border border-gray-200/50 rounded-2xl p-5
+           shadow-lg shadow-primary-500/5
+           hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10
+           transition-all duration-300;
   }
 
+  .dark .card {
+    @apply bg-dark-800/50 border-dark-700/50
+           shadow-lg shadow-primary-500/5
+           hover:border-primary-500/50 hover:shadow-primary-500/10;
+  }
+
+  /* Colorful cards for different sections */
+  .card-cyan {
+    @apply bg-gradient-to-br from-secondary-50 to-white border-secondary-200/50
+           hover:border-secondary-400 hover:shadow-secondary-500/20;
+  }
+
+  .dark .card-cyan {
+    @apply bg-gradient-to-br from-secondary-950/50 to-dark-800/50 border-secondary-800/50
+           hover:border-secondary-500/50;
+  }
+
+  .card-violet {
+    @apply bg-gradient-to-br from-violet-50 to-white border-violet-200/50
+           hover:border-violet-400 hover:shadow-violet-500/20;
+  }
+
+  .dark .card-violet {
+    @apply bg-gradient-to-br from-violet-950/50 to-dark-800/50 border-violet-800/50
+           hover:border-violet-500/50;
+  }
+
+  .card-warm {
+    @apply bg-gradient-to-br from-warm-50 to-white border-warm-200/50
+           hover:border-warm-400 hover:shadow-warm-500/20;
+  }
+
+  .dark .card-warm {
+    @apply bg-gradient-to-br from-warm-950/50 to-dark-800/50 border-warm-800/50
+           hover:border-warm-500/50;
+  }
+
+  /* Primary button with gradient */
   .btn-primary {
-    @apply px-6 py-3 bg-primary-500 text-white font-medium rounded-lg
-           hover:bg-primary-600 transition-all duration-300 inline-flex items-center gap-2;
+    @apply px-6 py-3 bg-gradient-to-r from-primary-500 via-primary-600 to-violet-600
+           text-white font-medium rounded-xl
+           hover:from-primary-600 hover:via-violet-600 hover:to-accent-600
+           shadow-lg shadow-primary-500/30
+           hover:shadow-xl hover:shadow-primary-500/40
+           transform hover:-translate-y-0.5
+           transition-all duration-300 inline-flex items-center gap-2;
   }
 
+  /* Outline button */
   .btn-outline {
-    @apply px-6 py-3 border border-primary-500 text-primary-400 font-medium rounded-lg
-           hover:bg-primary-500/10 transition-all duration-300 inline-flex items-center gap-2;
+    @apply px-6 py-3 border-2 border-primary-500 text-primary-600 font-medium rounded-xl
+           hover:bg-gradient-to-r hover:from-primary-500 hover:to-violet-500 hover:text-white hover:border-transparent
+           transition-all duration-300 inline-flex items-center gap-2;
   }
 
+  .dark .btn-outline {
+    @apply border-primary-400 text-primary-400
+           hover:from-primary-500 hover:to-violet-500 hover:text-white;
+  }
+
+  /* Colorful skill tags */
   .skill-tag {
-    @apply px-3 py-1.5 bg-dark-400 text-primary-300 text-sm rounded-lg border border-dark-300
-           hover:border-primary-500/50 hover:bg-primary-500/10 transition-all duration-300;
+    @apply px-3 py-1.5 text-sm rounded-lg font-medium
+           bg-gradient-to-r from-primary-50 to-violet-50
+           text-primary-700 border border-primary-200
+           hover:from-primary-100 hover:to-violet-100 hover:border-primary-300
+           transition-all duration-300;
+  }
+
+  .dark .skill-tag {
+    @apply bg-gradient-to-r from-primary-950/50 to-violet-950/50
+           text-primary-300 border-primary-800/50
+           hover:from-primary-900/50 hover:to-violet-900/50 hover:border-primary-600/50;
+  }
+
+  .skill-tag-cyan {
+    @apply bg-gradient-to-r from-secondary-50 to-primary-50
+           text-secondary-700 border-secondary-200
+           hover:from-secondary-100 hover:to-primary-100;
+  }
+
+  .dark .skill-tag-cyan {
+    @apply from-secondary-950/50 to-primary-950/50
+           text-secondary-300 border-secondary-800/50;
+  }
+
+  .skill-tag-warm {
+    @apply bg-gradient-to-r from-warm-50 to-accent-50
+           text-warm-700 border-warm-200
+           hover:from-warm-100 hover:to-accent-100;
+  }
+
+  .dark .skill-tag-warm {
+    @apply from-warm-950/50 to-accent-950/50
+           text-warm-300 border-warm-800/50;
+  }
+
+  .skill-tag-success {
+    @apply bg-gradient-to-r from-success-50 to-secondary-50
+           text-success-700 border-success-200
+           hover:from-success-100 hover:to-secondary-100;
+  }
+
+  .dark .skill-tag-success {
+    @apply from-success-950/50 to-secondary-950/50
+           text-success-300 border-success-800/50;
+  }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    @apply p-2.5 rounded-xl bg-gradient-to-br from-primary-100 to-violet-100
+           text-primary-600 hover:from-primary-200 hover:to-violet-200
+           shadow-md shadow-primary-500/10
+           transition-all duration-300;
+  }
+
+  .dark .theme-toggle {
+    @apply from-dark-800 to-dark-700 text-primary-400
+           hover:from-primary-900/50 hover:to-violet-900/50
+           shadow-primary-500/5;
+  }
+
+  /* Section backgrounds */
+  .section-light {
+    @apply bg-gradient-to-br from-white via-primary-50/30 to-violet-50/30;
+  }
+
+  .dark .section-light {
+    @apply from-dark-900 via-primary-950/20 to-violet-950/20;
+  }
+
+  .section-alt {
+    @apply bg-gradient-to-br from-gray-50 via-secondary-50/30 to-primary-50/30;
+  }
+
+  .dark .section-alt {
+    @apply from-dark-950 via-secondary-950/20 to-primary-950/20;
+  }
+
+  /* Decorative blobs */
+  .blob-primary {
+    @apply bg-gradient-to-br from-primary-400/20 to-violet-400/20;
+  }
+
+  .dark .blob-primary {
+    @apply from-primary-600/10 to-violet-600/10;
+  }
+
+  .blob-secondary {
+    @apply bg-gradient-to-br from-secondary-400/20 to-primary-400/20;
+  }
+
+  .dark .blob-secondary {
+    @apply from-secondary-600/10 to-primary-600/10;
+  }
+
+  .blob-accent {
+    @apply bg-gradient-to-br from-accent-400/20 to-warm-400/20;
+  }
+
+  .dark .blob-accent {
+    @apply from-accent-600/10 to-warm-600/10;
+  }
+
+  /* Input fields */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl
+           bg-white/80 border border-gray-200
+           text-dark-800 placeholder-dark-400
+           focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20
+           transition-all duration-300;
+  }
+
+  .dark .input-field {
+    @apply bg-dark-800/50 border-dark-700
+           text-dark-100 placeholder-dark-500
+           focus:border-primary-500 focus:ring-primary-500/20;
+  }
+
+  /* Contact card */
+  .contact-card {
+    @apply flex items-center gap-4 p-4 rounded-xl
+           bg-white/80 border border-gray-200
+           hover:border-primary-300 hover:shadow-lg hover:shadow-primary-500/10
+           transition-all duration-300;
+  }
+
+  .dark .contact-card {
+    @apply bg-dark-800/50 border-dark-700
+           hover:border-primary-500/50;
+  }
+
+  .contact-icon {
+    @apply p-3 rounded-xl bg-gradient-to-br from-primary-100 to-violet-100
+           text-primary-600
+           transition-all duration-300;
+  }
+
+  .contact-card:hover .contact-icon {
+    @apply from-primary-500 to-violet-500 text-white;
+  }
+
+  .dark .contact-icon {
+    @apply from-primary-900/50 to-violet-900/50 text-primary-400;
+  }
+
+  .dark .contact-card:hover .contact-icon {
+    @apply from-primary-500 to-violet-500 text-white;
+  }
+
+  /* Social link */
+  .social-link {
+    @apply p-3 rounded-xl bg-white/80 border border-gray-200
+           text-dark-500 hover:text-primary-500 hover:border-primary-300
+           hover:shadow-lg hover:shadow-primary-500/10
+           transition-all duration-300;
+  }
+
+  .dark .social-link {
+    @apply bg-dark-800/50 border-dark-700 text-dark-400
+           hover:text-primary-400 hover:border-primary-500/50;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    @apply bg-gradient-to-b from-primary-300 via-violet-300 to-accent-300;
+  }
+
+  .dark .timeline-line {
+    @apply from-primary-700 via-violet-700 to-accent-700;
+  }
+
+  .timeline-dot {
+    @apply w-4 h-4 rounded-full bg-gradient-to-br from-primary-500 to-violet-500
+           border-4 border-white shadow-lg shadow-primary-500/30;
+  }
+
+  .dark .timeline-dot {
+    @apply border-dark-900;
   }
 }

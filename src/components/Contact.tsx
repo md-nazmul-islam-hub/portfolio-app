@@ -9,7 +9,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-dark-600/30">
+    <section id="contact" className="py-12 md:py-16 section-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -17,77 +17,61 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-primary-400 font-mono mb-4">05. What's Next?</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-dark-100 mb-6">Get In Touch</h2>
-            <p className="text-dark-200">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <p className="text-success-500 dark:text-success-400 font-mono mb-3">05. What's Next?</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-800 dark:text-dark-100 mb-4">Get In Touch</h2>
+            <p className="text-dark-600 dark:text-dark-300">
               I'm currently open to new opportunities and always interested in hearing about
               exciting projects. Whether you have a question or just want to say hi, feel free
               to reach out!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <h3 className="text-xl font-bold text-dark-100 mb-6">Contact Information</h3>
+              <h3 className="text-lg font-bold text-dark-800 dark:text-dark-100 mb-4">Contact Information</h3>
 
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-4 p-4 rounded-lg bg-dark-400/50 border border-dark-300 hover:border-primary-500/50 transition-colors group"
-              >
-                <div className="p-3 rounded-lg bg-primary-500/10 text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+              <a href={`mailto:${profile.email}`} className="contact-card">
+                <div className="contact-icon">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-200">Email</p>
-                  <p className="text-dark-100">{profile.email}</p>
+                  <p className="text-xs text-dark-500 dark:text-dark-400">Email</p>
+                  <p className="text-dark-800 dark:text-dark-100 text-sm font-medium">{profile.email}</p>
                 </div>
               </a>
 
-              <a
-                href={`tel:${profile.phone}`}
-                className="flex items-center gap-4 p-4 rounded-lg bg-dark-400/50 border border-dark-300 hover:border-primary-500/50 transition-colors group"
-              >
-                <div className="p-3 rounded-lg bg-primary-500/10 text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+              <a href={`tel:${profile.phone}`} className="contact-card">
+                <div className="contact-icon">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-200">Phone</p>
-                  <p className="text-dark-100">{profile.phone}</p>
+                  <p className="text-xs text-dark-500 dark:text-dark-400">Phone</p>
+                  <p className="text-dark-800 dark:text-dark-100 text-sm font-medium">{profile.phone}</p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-dark-400/50 border border-dark-300">
-                <div className="p-3 rounded-lg bg-primary-500/10 text-primary-400">
+              <div className="contact-card">
+                <div className="contact-icon">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-dark-200">Location</p>
-                  <p className="text-dark-100">{profile.location}</p>
+                  <p className="text-xs text-dark-500 dark:text-dark-400">Location</p>
+                  <p className="text-dark-800 dark:text-dark-100 text-sm font-medium">{profile.location}</p>
                 </div>
               </div>
 
-              <div className="flex gap-4 pt-4">
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-dark-400/50 border border-dark-300 text-dark-200 hover:text-primary-400 hover:border-primary-500/50 transition-colors"
-                >
+              <div className="flex gap-3 pt-2">
+                <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-dark-400/50 border border-dark-300 text-dark-200 hover:text-primary-400 hover:border-primary-500/50 transition-colors"
-                >
+                <a href={profile.github} target="_blank" rel="noopener noreferrer" className="social-link">
                   <Github className="w-5 h-5" />
                 </a>
               </div>
@@ -101,40 +85,40 @@ export default function Contact() {
             >
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-dark-200 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-1.5">
                     Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-3 rounded-lg bg-dark-400/50 border border-dark-300 text-dark-100 placeholder-dark-200 focus:outline-none focus:border-primary-500 transition-colors"
+                    className="input-field"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark-200 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-1.5">
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 rounded-lg bg-dark-400/50 border border-dark-300 text-dark-100 placeholder-dark-200 focus:outline-none focus:border-primary-500 transition-colors"
+                    className="input-field"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-dark-200 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-1.5">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-dark-400/50 border border-dark-300 text-dark-100 placeholder-dark-200 focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                    rows={4}
+                    className="input-field resize-none"
                     placeholder="Your message..."
                   />
                 </div>

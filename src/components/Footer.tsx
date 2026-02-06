@@ -5,21 +5,21 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-8 border-t border-dark-300">
+    <footer className="py-6 border-t border-gray-200 dark:border-dark-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-dark-200 text-sm">
+          <div className="flex items-center gap-2 text-dark-600 dark:text-dark-400 text-sm">
             <span>Built with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+            <Heart className="w-4 h-4 text-accent-500 fill-accent-500" />
             <span>by {profile.name}</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark-200 hover:text-primary-400 transition-colors"
+              className="text-dark-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
             >
               <Github className="w-5 h-5" />
             </a>
@@ -27,19 +27,19 @@ export default function Footer() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark-200 hover:text-primary-400 transition-colors"
+              className="text-dark-400 hover:text-secondary-500 dark:hover:text-secondary-400 transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="text-dark-200 hover:text-primary-400 transition-colors"
+              className="text-dark-400 hover:text-violet-500 dark:hover:text-violet-400 transition-colors"
             >
               <Mail className="w-5 h-5" />
             </a>
           </div>
 
-          <p className="text-dark-200 text-sm">
+          <p className="text-dark-500 dark:text-dark-400 text-sm">
             © {currentYear} All rights reserved.
           </p>
         </div>
