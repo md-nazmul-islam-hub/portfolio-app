@@ -24,14 +24,14 @@ export default function FeaturedProjects() {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-4">
               <h2 className="section-heading">
-                <span className="text-primary-500 dark:text-primary-400 font-mono text-lg mr-2">03.</span>
+                <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent font-mono text-lg mr-2">03.</span>
                 Featured Projects
               </h2>
-              <div className="flex-1 h-px bg-gradient-to-r from-primary-300 to-transparent dark:from-primary-700 max-w-xs hidden sm:block" />
+              <div className="flex-1 h-px bg-gradient-to-r from-orange-500/50 to-transparent max-w-xs hidden sm:block" />
             </div>
             <Link
               to="/projects"
-              className="hidden sm:flex items-center gap-2 text-primary-500 dark:text-primary-400 hover:text-violet-500 dark:hover:text-violet-400 transition-colors font-medium"
+              className="hidden sm:flex items-center gap-2 text-orange-500 dark:text-orange-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors font-medium"
             >
               View All
               <ArrowRight className="w-4 h-4" />

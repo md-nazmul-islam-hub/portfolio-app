@@ -9,25 +9,25 @@
     scroll-behavior: smooth;
   }
 
-  /* Light mode - warm gradient background */
+  /* Light mode - clean warm background */
   body {
     @apply font-sans antialiased transition-colors duration-300;
-    background: linear-gradient(135deg, #fafafa 0%, #f0f4ff 50%, #fdf4ff 100%);
+    background: linear-gradient(135deg, #fafafa 0%, #fff7ed 50%, #fef3c7 100%);
     @apply text-dark-800;
   }
 
-  /* Dark mode - rich dark background */
+  /* Dark mode - deep dark background */
   .dark body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-    @apply text-dark-100;
+    background: #0a0a0a;
+    @apply text-gray-100;
   }
 
   ::selection {
-    @apply bg-primary-500/30 text-primary-900;
+    @apply bg-orange-500/30 text-orange-900;
   }
 
   .dark ::selection {
-    @apply bg-primary-500/30 text-primary-100;
+    @apply bg-orange-500/30 text-orange-100;
   }
 
   ::-webkit-scrollbar {
@@ -43,15 +43,15 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-300 rounded-full;
+    @apply bg-orange-300 rounded-full;
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    @apply bg-primary-700 rounded-full;
+    @apply bg-orange-700 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-500;
+    @apply bg-orange-500;
   }
 }
 
@@ -61,264 +61,163 @@
   }
 
   .dark .section-heading {
-    @apply text-dark-50;
+    @apply text-white;
   }
 
-  /* Multi-color gradient text */
+  /* Warm gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 via-violet-500 to-accent-500 bg-clip-text text-transparent;
-  }
-
-  .gradient-text-alt {
-    @apply bg-gradient-to-r from-secondary-500 via-primary-500 to-violet-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent;
   }
 
   /* Modern card with glassmorphism */
   .card {
-    @apply bg-white/70 backdrop-blur-md border border-gray-200/50 rounded-2xl p-5
-           shadow-lg shadow-primary-500/5
-           hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10
+    @apply bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl p-5
+           shadow-lg shadow-orange-500/5
+           hover:border-orange-300/50 hover:shadow-xl hover:shadow-orange-500/10
            transition-all duration-300;
   }
 
   .dark .card {
-    @apply bg-dark-800/50 border-dark-700/50
-           shadow-lg shadow-primary-500/5
-           hover:border-primary-500/50 hover:shadow-primary-500/10;
+    @apply bg-dark-900/80 border-dark-800
+           shadow-lg shadow-orange-500/5
+           hover:border-orange-500/30 hover:shadow-orange-500/10;
   }
 
-  /* Colorful cards for different sections */
-  .card-cyan {
-    @apply bg-gradient-to-br from-secondary-50 to-white border-secondary-200/50
-           hover:border-secondary-400 hover:shadow-secondary-500/20;
-  }
-
-  .dark .card-cyan {
-    @apply bg-gradient-to-br from-secondary-950/50 to-dark-800/50 border-secondary-800/50
-           hover:border-secondary-500/50;
-  }
-
-  .card-violet {
-    @apply bg-gradient-to-br from-violet-50 to-white border-violet-200/50
-           hover:border-violet-400 hover:shadow-violet-500/20;
-  }
-
-  .dark .card-violet {
-    @apply bg-gradient-to-br from-violet-950/50 to-dark-800/50 border-violet-800/50
-           hover:border-violet-500/50;
-  }
-
-  .card-warm {
-    @apply bg-gradient-to-br from-warm-50 to-white border-warm-200/50
-           hover:border-warm-400 hover:shadow-warm-500/20;
-  }
-
-  .dark .card-warm {
-    @apply bg-gradient-to-br from-warm-950/50 to-dark-800/50 border-warm-800/50
-           hover:border-warm-500/50;
-  }
-
-  /* Primary button with gradient */
+  /* Primary button with gradient and transforms */
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-primary-500 via-primary-600 to-violet-600
-           text-white font-medium rounded-xl
-           hover:from-primary-600 hover:via-violet-600 hover:to-accent-600
-           shadow-lg shadow-primary-500/30
-           hover:shadow-xl hover:shadow-primary-500/40
-           transform hover:-translate-y-0.5
-           transition-all duration-300 inline-flex items-center gap-2;
+    @apply relative px-6 py-3 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500
+           text-dark-900 font-semibold rounded-xl overflow-hidden
+           transform transition-all duration-300 ease-out
+           hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/40
+           active:scale-95 inline-flex items-center gap-2;
   }
 
-  /* Outline button */
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500
+           opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-primary span {
+    @apply relative z-10;
+  }
+
+  /* Outline button with transforms */
   .btn-outline {
-    @apply px-6 py-3 border-2 border-primary-500 text-primary-600 font-medium rounded-xl
-           hover:bg-gradient-to-r hover:from-primary-500 hover:to-violet-500 hover:text-white hover:border-transparent
-           transition-all duration-300 inline-flex items-center gap-2;
+    @apply px-6 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded-xl
+           transform transition-all duration-300 ease-out
+           hover:bg-orange-500 hover:text-dark-900 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30
+           active:scale-95 inline-flex items-center gap-2;
   }
 
   .dark .btn-outline {
-    @apply border-primary-400 text-primary-400
-           hover:from-primary-500 hover:to-violet-500 hover:text-white;
+    @apply border-orange-500 text-orange-400
+           hover:bg-orange-500 hover:text-dark-900;
   }
 
-  /* Colorful skill tags */
+  /* Skill tags with warm colors */
   .skill-tag {
     @apply px-3 py-1.5 text-sm rounded-lg font-medium
-           bg-gradient-to-r from-primary-50 to-violet-50
-           text-primary-700 border border-primary-200
-           hover:from-primary-100 hover:to-violet-100 hover:border-primary-300
-           transition-all duration-300;
+           bg-gradient-to-r from-orange-50 to-amber-50
+           text-orange-700 border border-orange-200
+           hover:from-orange-100 hover:to-amber-100 hover:border-orange-300
+           transform transition-all duration-200
+           hover:scale-105;
   }
 
   .dark .skill-tag {
-    @apply bg-gradient-to-r from-primary-950/50 to-violet-950/50
-           text-primary-300 border-primary-800/50
-           hover:from-primary-900/50 hover:to-violet-900/50 hover:border-primary-600/50;
-  }
-
-  .skill-tag-cyan {
-    @apply bg-gradient-to-r from-secondary-50 to-primary-50
-           text-secondary-700 border-secondary-200
-           hover:from-secondary-100 hover:to-primary-100;
-  }
-
-  .dark .skill-tag-cyan {
-    @apply from-secondary-950/50 to-primary-950/50
-           text-secondary-300 border-secondary-800/50;
-  }
-
-  .skill-tag-warm {
-    @apply bg-gradient-to-r from-warm-50 to-accent-50
-           text-warm-700 border-warm-200
-           hover:from-warm-100 hover:to-accent-100;
-  }
-
-  .dark .skill-tag-warm {
-    @apply from-warm-950/50 to-accent-950/50
-           text-warm-300 border-warm-800/50;
-  }
-
-  .skill-tag-success {
-    @apply bg-gradient-to-r from-success-50 to-secondary-50
-           text-success-700 border-success-200
-           hover:from-success-100 hover:to-secondary-100;
-  }
-
-  .dark .skill-tag-success {
-    @apply from-success-950/50 to-secondary-950/50
-           text-success-300 border-success-800/50;
+    @apply bg-gradient-to-r from-orange-950/50 to-amber-950/50
+           text-orange-300 border-orange-800/50
+           hover:from-orange-900/50 hover:to-amber-900/50 hover:border-orange-600/50;
   }
 
   /* Theme toggle button */
   .theme-toggle {
-    @apply p-2.5 rounded-xl bg-gradient-to-br from-primary-100 to-violet-100
-           text-primary-600 hover:from-primary-200 hover:to-violet-200
-           shadow-md shadow-primary-500/10
-           transition-all duration-300;
+    @apply p-2.5 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100
+           text-orange-600
+           transform transition-all duration-300
+           hover:from-orange-200 hover:to-amber-200 hover:scale-110
+           shadow-md shadow-orange-500/10;
   }
 
   .dark .theme-toggle {
-    @apply from-dark-800 to-dark-700 text-primary-400
-           hover:from-primary-900/50 hover:to-violet-900/50
-           shadow-primary-500/5;
+    @apply from-dark-800 to-dark-700 text-orange-400
+           hover:from-orange-900/50 hover:to-amber-900/50
+           shadow-orange-500/5;
   }
 
   /* Section backgrounds */
-  .section-light {
-    @apply bg-gradient-to-br from-white via-primary-50/30 to-violet-50/30;
-  }
-
-  .dark .section-light {
-    @apply from-dark-900 via-primary-950/20 to-violet-950/20;
-  }
-
   .section-alt {
-    @apply bg-gradient-to-br from-gray-50 via-secondary-50/30 to-primary-50/30;
+    @apply bg-gradient-to-br from-orange-50/50 via-amber-50/30 to-yellow-50/50;
   }
 
   .dark .section-alt {
-    @apply from-dark-950 via-secondary-950/20 to-primary-950/20;
-  }
-
-  /* Decorative blobs */
-  .blob-primary {
-    @apply bg-gradient-to-br from-primary-400/20 to-violet-400/20;
-  }
-
-  .dark .blob-primary {
-    @apply from-primary-600/10 to-violet-600/10;
-  }
-
-  .blob-secondary {
-    @apply bg-gradient-to-br from-secondary-400/20 to-primary-400/20;
-  }
-
-  .dark .blob-secondary {
-    @apply from-secondary-600/10 to-primary-600/10;
-  }
-
-  .blob-accent {
-    @apply bg-gradient-to-br from-accent-400/20 to-warm-400/20;
-  }
-
-  .dark .blob-accent {
-    @apply from-accent-600/10 to-warm-600/10;
+    @apply from-dark-950 via-orange-950/10 to-dark-950;
   }
 
   /* Input fields */
   .input-field {
     @apply w-full px-4 py-3 rounded-xl
            bg-white/80 border border-gray-200
-           text-dark-800 placeholder-dark-400
-           focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20
+           text-dark-800 placeholder-gray-400
+           focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-500/20
            transition-all duration-300;
   }
 
   .dark .input-field {
-    @apply bg-dark-800/50 border-dark-700
-           text-dark-100 placeholder-dark-500
-           focus:border-primary-500 focus:ring-primary-500/20;
+    @apply bg-dark-900/80 border-dark-700
+           text-gray-100 placeholder-gray-500
+           focus:border-orange-500 focus:ring-orange-500/20;
   }
 
   /* Contact card */
   .contact-card {
     @apply flex items-center gap-4 p-4 rounded-xl
            bg-white/80 border border-gray-200
-           hover:border-primary-300 hover:shadow-lg hover:shadow-primary-500/10
-           transition-all duration-300;
+           transform transition-all duration-300
+           hover:border-orange-300 hover:shadow-lg hover:shadow-orange-500/10
+           hover:scale-[1.02];
   }
 
   .dark .contact-card {
-    @apply bg-dark-800/50 border-dark-700
-           hover:border-primary-500/50;
+    @apply bg-dark-900/80 border-dark-700
+           hover:border-orange-500/50;
   }
 
   .contact-icon {
-    @apply p-3 rounded-xl bg-gradient-to-br from-primary-100 to-violet-100
-           text-primary-600
+    @apply p-3 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100
+           text-orange-600
            transition-all duration-300;
   }
 
   .contact-card:hover .contact-icon {
-    @apply from-primary-500 to-violet-500 text-white;
+    @apply from-orange-500 to-amber-500 text-white;
   }
 
   .dark .contact-icon {
-    @apply from-primary-900/50 to-violet-900/50 text-primary-400;
+    @apply from-orange-900/50 to-amber-900/50 text-orange-400;
   }
 
   .dark .contact-card:hover .contact-icon {
-    @apply from-primary-500 to-violet-500 text-white;
+    @apply from-orange-500 to-amber-500 text-white;
   }
 
-  /* Social link */
+  /* Social link with transforms */
   .social-link {
     @apply p-3 rounded-xl bg-white/80 border border-gray-200
-           text-dark-500 hover:text-primary-500 hover:border-primary-300
-           hover:shadow-lg hover:shadow-primary-500/10
-           transition-all duration-300;
+           text-gray-500
+           transform transition-all duration-300
+           hover:text-orange-500 hover:border-orange-300
+           hover:shadow-lg hover:shadow-orange-500/10
+           hover:scale-110 hover:-translate-y-1;
   }
 
   .dark .social-link {
-    @apply bg-dark-800/50 border-dark-700 text-dark-400
-           hover:text-primary-400 hover:border-primary-500/50;
-  }
-
-  /* Timeline */
-  .timeline-line {
-    @apply bg-gradient-to-b from-primary-300 via-violet-300 to-accent-300;
-  }
-
-  .dark .timeline-line {
-    @apply from-primary-700 via-violet-700 to-accent-700;
-  }
-
-  .timeline-dot {
-    @apply w-4 h-4 rounded-full bg-gradient-to-br from-primary-500 to-violet-500
-           border-4 border-white shadow-lg shadow-primary-500/30;
-  }
-
-  .dark .timeline-dot {
-    @apply border-dark-900;
+    @apply bg-dark-900/80 border-dark-700 text-gray-400
+           hover:text-orange-400 hover:border-orange-500/50;
   }
 }

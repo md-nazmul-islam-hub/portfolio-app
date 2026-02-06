@@ -45,7 +45,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-lg shadow-lg shadow-primary-500/5'
+          ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-lg shadow-lg shadow-orange-500/5'
           : 'bg-transparent'
       }`}
     >
@@ -53,8 +53,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 via-violet-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/30">
-              <span className="text-white font-bold text-lg">MN</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
+              <span className="text-dark-900 font-bold text-lg">MN</span>
             </div>
             <span className="hidden sm:block text-dark-800 dark:text-dark-100 font-semibold">Nazmul Islam</span>
           </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
                     handleNavClick(link.href)
                   }
                 }}
-                className="text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors text-sm font-medium"
+                className="text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-sm font-medium"
               >
                 {link.name}
               </a>
@@ -106,7 +106,7 @@ export default function Navbar() {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              className="p-2 text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400"
+              className="p-2 text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -137,7 +137,7 @@ export default function Navbar() {
                       setIsOpen(false)
                     }
                   }}
-                  className="block py-2 text-dark-600 dark:text-dark-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                  className="block py-2 text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -146,7 +146,7 @@ export default function Navbar() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block py-2 text-primary-500 dark:text-primary-400"
+                className="block py-2 text-orange-500 dark:text-orange-400"
               >
                 Resume
               </a>

@@ -5,12 +5,12 @@ import { Server, Layout, Database, Cloud, GitBranch, Plug } from 'lucide-react'
 import { skills } from '../data/profile'
 
 const skillCategories = [
-  { name: 'Backend', icon: Server, skills: skills.backend, gradient: 'from-primary-500 to-violet-500', tagClass: 'skill-tag' },
-  { name: 'Frontend', icon: Layout, skills: skills.frontend, gradient: 'from-violet-500 to-accent-500', tagClass: 'skill-tag' },
-  { name: 'Databases', icon: Database, skills: skills.databases, gradient: 'from-secondary-500 to-primary-500', tagClass: 'skill-tag-cyan' },
-  { name: 'Cloud (AWS)', icon: Cloud, skills: skills.cloud, gradient: 'from-warm-500 to-accent-500', tagClass: 'skill-tag-warm' },
-  { name: 'DevOps', icon: GitBranch, skills: skills.devops, gradient: 'from-success-500 to-secondary-500', tagClass: 'skill-tag-success' },
-  { name: 'Integrations', icon: Plug, skills: skills.integrations, gradient: 'from-accent-500 to-warm-500', tagClass: 'skill-tag-warm' },
+  { name: 'Backend', icon: Server, skills: skills.backend, gradient: 'from-orange-500 to-amber-500' },
+  { name: 'Frontend', icon: Layout, skills: skills.frontend, gradient: 'from-amber-500 to-yellow-500' },
+  { name: 'Databases', icon: Database, skills: skills.databases, gradient: 'from-yellow-500 to-orange-500' },
+  { name: 'Cloud (AWS)', icon: Cloud, skills: skills.cloud, gradient: 'from-orange-600 to-amber-500' },
+  { name: 'DevOps', icon: GitBranch, skills: skills.devops, gradient: 'from-amber-600 to-yellow-500' },
+  { name: 'Integrations', icon: Plug, skills: skills.integrations, gradient: 'from-orange-500 to-yellow-500' },
 ]
 
 export default function Skills() {
@@ -28,10 +28,10 @@ export default function Skills() {
         >
           <div className="flex items-center gap-4 mb-8">
             <h2 className="section-heading">
-              <span className="text-violet-500 dark:text-violet-400 font-mono text-lg mr-2">02.</span>
+              <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent font-mono text-lg mr-2">02.</span>
               Skills & Technologies
             </h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-violet-300 to-transparent dark:from-violet-700 max-w-xs" />
+            <div className="flex-1 h-px bg-gradient-to-r from-orange-500/50 to-transparent max-w-xs" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -51,7 +51,7 @@ export default function Skills() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <span key={skill} className={category.tagClass}>
+                    <span key={skill} className="skill-tag">
                       {skill}
                     </span>
                   ))}

@@ -18,7 +18,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <p className="text-success-500 dark:text-success-400 font-mono mb-3">05. What's Next?</p>
+            <p className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent font-mono mb-3">05. What's Next?</p>
             <h2 className="text-3xl md:text-4xl font-bold text-dark-800 dark:text-dark-100 mb-4">Get In Touch</h2>
             <p className="text-dark-600 dark:text-dark-300">
               I'm currently open to new opportunities and always interested in hearing about
