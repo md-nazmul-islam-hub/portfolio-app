@@ -82,25 +82,6 @@ export const projects = [
   },
   {
     id: 2,
-    title: "JEXCA",
-    subtitle: "Alumni Management System",
-    description: `Alumni management system with features for member registration,
-      event management, e-voting system, help-seeking posts, and package subscriptions.`,
-    image: "/projects/jexca.jpg",
-    technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Bootstrap", "AWS"],
-    features: [
-      "Secure e-voting system for organizational elections",
-      "Role-based access control with fine-grained permissions",
-      "Multiple payment gateway integrations",
-      "99.9% uptime with AWS infrastructure",
-    ],
-    links: {
-      live: "#",
-      github: "#",
-    },
-  },
-  {
-    id: 3,
     title: "Hospital Management System",
     subtitle: "Healthcare Workflow Automation",
     description: `Comprehensive hospital management system supporting patient registration,
@@ -112,6 +93,25 @@ export const projects = [
       "Integrated pathology and radiology equipment APIs",
       "Automated diagnostic report collection",
       "Centralized server with distributed LAN architecture",
+    ],
+    links: {
+      live: "#",
+      github: "#",
+    },
+  },
+  {
+    id: 3,
+    title: "JEXCA",
+    subtitle: "Alumni Management System",
+    description: `Alumni management system with features for member registration,
+      event management, e-voting system, help-seeking posts, and package subscriptions.`,
+    image: "/projects/jexca.jpg",
+    technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Bootstrap", "AWS"],
+    features: [
+      "Secure e-voting system for organizational elections",
+      "Role-based access control with fine-grained permissions",
+      "Multiple payment gateway integrations",
+      "99.9% uptime with AWS infrastructure",
     ],
     links: {
       live: "#",

@@ -2,15 +2,13 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
-import ProjectCard from './ProjectCard'
+import { ArrowRight} from 'lucide-react'
 import { projects } from '../data/profile'
+import ProjectCard from './ProjectCard'
 
 export default function FeaturedProjects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  const featuredProjects = projects.slice(0, 2)
 
   return (
     <section className="py-12 md:py-16 section-alt">
@@ -21,7 +19,7 @@ export default function FeaturedProjects() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-4">
               <h2 className="section-heading">
                 <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent font-mono text-lg mr-2">03.</span>
@@ -38,8 +36,8 @@ export default function FeaturedProjects() {
             </Link>
           </div>
 
-          <div className="space-y-12">
-            {featuredProjects.map((project, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.slice(0, 2).map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
@@ -52,8 +50,10 @@ export default function FeaturedProjects() {
 
           <div className="mt-10 text-center sm:hidden">
             <Link to="/projects" className="btn-outline">
-              View All Projects
-              <ArrowRight className="w-4 h-4" />
+              <span className="relative z-10 inline-flex items-center gap-2">
+                View All Projects
+                <ArrowRight className="w-4 h-4" />
+              </span>
             </Link>
           </div>
         </motion.div>

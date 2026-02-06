@@ -34,7 +34,7 @@ export default function Projects() {
               <span className="w-8 h-0.5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></span>
               Featured Projects
             </h2>
-            <div className="space-y-16">
+            <div className="grid md:grid-cols-2 gap-6">
               {projects.slice(0, 2).map((project, index) => (
                 <ProjectCard
                   key={project.id}
