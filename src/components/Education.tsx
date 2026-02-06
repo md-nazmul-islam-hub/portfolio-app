@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { GraduationCap, Award, MapPin, Calendar, ExternalLink } from 'lucide-react'
+import { GraduationCap, Award, MapPin, Calendar, ExternalLink, Trophy } from 'lucide-react'
 import { education, publication } from '../data/profile'
 
 export default function Education() {
@@ -53,6 +53,10 @@ export default function Education() {
                     <Calendar className="w-3.5 h-3.5 text-amber-500" />
                     <span>Graduated: {education.passingYear}</span>
                   </div>
+                  <div className="flex items-center gap-1">
+                    <Trophy className="w-3.5 h-3.5 text-yellow-500" />
+                    <span>CGPA: {education.cgpa}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -93,7 +97,7 @@ export default function Education() {
                   href={publication.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors mt-2"
+                  className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors mt-2 ml-2"
                 >
                   <span className="text-sm font-medium">View Paper</span>
                   <ExternalLink className="w-4 h-4" />

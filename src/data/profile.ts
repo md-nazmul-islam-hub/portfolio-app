@@ -163,7 +163,8 @@ export const education = {
   institution: "Pabna University of Science and Technology",
   location: "Pabna, Bangladesh",
   session: "2014 - 2015",
-  passingYear: "2018",
+  passingYear: "2020",
+  cgpa: "3.61 out of 4.00",
 };
 
 export const publication = {
