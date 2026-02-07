@@ -61,21 +61,29 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  if (link.href.startsWith('/#')) {
+            {navLinks.map((link) =>
+              link.href.startsWith('/#') ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
                     e.preventDefault()
                     handleNavClick(link.href)
-                  }
-                }}
-                className="text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-sm font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
+                  }}
+                  className="text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-sm font-medium"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-sm font-medium"
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
 
             {/* Theme Toggle */}
             <button
@@ -125,23 +133,30 @@ export default function Navbar() {
             className="md:hidden bg-white/95 dark:bg-dark-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-dark-700"
           >
             <div className="px-4 py-4 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    if (link.href.startsWith('/#')) {
+              {navLinks.map((link) =>
+                link.href.startsWith('/#') ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => {
                       e.preventDefault()
                       handleNavClick(link.href)
-                    } else {
-                      setIsOpen(false)
-                    }
-                  }}
-                  className="block py-2 text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+                    }}
+                    className="block py-2 text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-dark-600 dark:text-dark-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
               <a
                 href="/md_nazmul_islam.pdf"
                 target="_blank"
