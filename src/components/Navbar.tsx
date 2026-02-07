@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
+import { generateResumePdf } from '../utils/generateResumePdf'
 
 const navLinks = [
   { name: 'Home', href: '/#home' },
@@ -102,6 +103,12 @@ export default function Navbar() {
             >
               Resume
             </a>
+            {/* <button
+              onClick={generateResumePdf}
+              className="btn-outline text-sm py-2"
+            >
+              Resume
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -165,6 +172,12 @@ export default function Navbar() {
               >
                 Resume
               </a>
+              {/* <button
+                onClick={generateResumePdf}
+                className="block py-2 text-orange-500 dark:text-orange-400"
+              >
+                Resume
+              </button> */}
             </div>
           </motion.div>
         )}

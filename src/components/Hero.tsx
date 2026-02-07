@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
+import { generateResumePdf } from '../utils/generateResumePdf'
 
 export default function Hero() {
   return (
@@ -128,6 +129,15 @@ export default function Hero() {
               >
                 Download Resume
               </a>
+              {/* <button
+                onClick={generateResumePdf}
+                className="group px-2 sm:px-4 md:px-8 py-3 border-2 border-orange-500 text-orange-400 font-semibold rounded-xl
+                         transform transition-all duration-300
+                         hover:bg-orange-500 hover:text-dark-900 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20
+                         active:scale-95"
+              >
+                Download Resume
+              </button> */}
             </motion.div>
 
             <motion.div
