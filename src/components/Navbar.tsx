@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'About', href: '/#about' },
   { name: 'Skills', href: '/#skills' },
   { name: 'Experience', href: '/#experience' },
-  { name: 'Projects', href: '/projects' },
+  { name: 'Projects', href: '/#projects' },
   { name: 'Education', href: '/#education' },
   { name: 'Contact', href: '/#contact' },
 ]
@@ -87,7 +87,7 @@ export default function Navbar() {
             </button>
 
             <a
-              href="/resume.pdf"
+              href="/md_nazmul_islam.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline text-sm py-2"
@@ -143,7 +143,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="/resume.pdf"
+                href="/md_nazmul_islam.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block py-2 text-orange-500 dark:text-orange-400"

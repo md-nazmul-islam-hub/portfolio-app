@@ -118,7 +118,7 @@ export default function Hero() {
                               opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <a
-                href="/resume.pdf"
+                href="/md_nazmul_islam.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group px-2 sm:px-4 md:px-8 py-3 border-2 border-orange-500 text-orange-400 font-semibold rounded-xl

@@ -11,7 +11,7 @@ export const profile = {
     NestJS, Node.js, and Laravel, along with solid frontend experience in React.js,
     Next.js, and TypeScript. Passionate about clean architecture, cloud infrastructure,
     and DevOps practices.`,
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/md_nazmul_islam.pdf",
 };
 
 export const skills = {
