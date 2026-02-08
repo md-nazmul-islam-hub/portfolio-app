@@ -35,8 +35,11 @@ export default function Navbar() {
       if (location.pathname !== '/') {
         window.location.href = href
       } else {
-        const element = document.getElementById(id)
-        element?.scrollIntoView({ behavior: 'smooth' })
+        // Delay scroll to allow mobile menu close animation to complete
+        setTimeout(() => {
+          const element = document.getElementById(id)
+          element?.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
       }
     }
   }
@@ -136,7 +139,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-dark-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-dark-700"
+            className="md:hidden overflow-hidden bg-white/95 dark:bg-dark-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-dark-700"
           >
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) =>
