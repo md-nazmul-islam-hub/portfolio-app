@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
-import { generateResumePdf } from '../utils/generateResumePdf'
 
 const navLinks = [
   { name: 'Home', href: '/#home' },

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
-import { generateResumePdf } from '../utils/generateResumePdf'
 
 export default function Hero() {
   return (
