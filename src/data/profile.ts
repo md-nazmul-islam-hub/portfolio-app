@@ -5,7 +5,7 @@ export const profile = {
   phone: "+8801716129832",
   location: "Dhaka, Bangladesh",
   linkedin: "https://linkedin.com/in/-md-nazmul-islam",
-  github: "https://github.com/nazmulswe",
+  github: "https://github.com/mdnazmulislamhub",
   summary: `Full-Stack Software Engineer with 5+ years of experience building scalable,
     secure, and high-performance web applications. Expert in backend development with
     NestJS, Node.js, and Laravel, along with solid frontend experience in React.js,
@@ -15,12 +15,12 @@ export const profile = {
 };
 
 export const skills = {
-  backend: ["Node.js", "NestJS", "Express.js", "PHP", "Laravel"],
-  frontend: ["React.js", "Next.js", "TypeScript", "Redux", "Tailwind CSS", "React Native"],
+  backend: ["Node.js", "NestJS", "Express.js", "PHP(OOP)", "Laravel"],
+  frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap"],
   databases: ["PostgreSQL", "MySQL", "MongoDB", "Oracle", "Redis", "DynamoDB"],
   cloud: ["AWS EC2", "AWS RDS", "AWS S3", "AWS EKS", "AWS Lambda", "AWS SQS"],
-  devops: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "CI/CD", "Terraform"],
-  integrations: ["Stripe", "Twilio", "Firebase", "SSLCommerz", "bKash", "Algolia"],
+  devops: ["Docker", "Git", "CI/CD Pipelines", "Kubernetes", "GitHub Actions", "Jenkins", "ArgoCD", "Terraform"],
+  integrations: ["Stripe", "Twilio", "Firebase", "SSLCommerz", "bKash", "SurjoPay", "SonaliPay", "Resend", "Mailgun", "SendGrid", "SLWireless", "BulkSms BD", "Algolia", "Sentry", "Dozzle"],
 };
 
 export const experience = [
