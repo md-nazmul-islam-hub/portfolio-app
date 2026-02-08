@@ -15,8 +15,8 @@ export const profile = {
 };
 
 export const skills = {
-  backend: ["Node.js", "NestJS", "Express.js", "PHP(OOP)", "Laravel"],
-  frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap"],
+  backend: ["NestJS", "Express.js", "Node.js", "Laravel", "PHP(OOP)"],
+  frontend: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Bootstrap"],
   databases: ["PostgreSQL", "MySQL", "MongoDB", "Oracle", "Redis", "DynamoDB"],
   cloud: ["AWS EC2", "AWS RDS", "AWS S3", "AWS EKS", "AWS Lambda", "AWS SQS"],
   devops: ["Docker", "Git", "CI/CD Pipelines", "Kubernetes", "GitHub Actions", "Jenkins", "ArgoCD", "Terraform"],
